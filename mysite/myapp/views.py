@@ -9,12 +9,12 @@ from alpha_vantage.timeseries import TimeSeries
 
 API_key = '03QDMPDVX4N8GR4U'
 
-# https://medium.com/codex/alpha-vantage-an-introduction-to-a-highly-efficient-free-stock-api-6d17f4481bf
+#   https://medium.com/codex/alpha-vantage-an-introduction-to-a-highly-efficient-free-stock-api-6d17f4481bf
 def get_monthly_data(symbol):
     api_key = '03QDMPDVX4N8GR4U'
     api_url = f'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol={symbol}&apikey={api_key}'
     raw_df = requests.get(api_url).json()
-    
+
     df = pd.DataFrame(raw_df[f'Monthly Time Series']).T
     df = df.rename(
         columns={'1. open': 'open', '2. high': 'high', '3. low': 'low', '4. close': 'close', '5. volume': 'volume'})
