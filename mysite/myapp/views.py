@@ -24,7 +24,7 @@ def get_monthly_data(symbol):
     df = df.iloc[::-1]
     return df
 
-def index(request): # http://127.0.0.1:8000/app/
+def index(request): # http://127.0.0.1:8000
 
     data = get_monthly_data('AAPL')
 
